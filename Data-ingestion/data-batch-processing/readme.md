@@ -120,7 +120,5 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 ![performance-management-schema](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
 <br>
 - Staging-db: training_development
-![training-development-schema](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
 <br>
 - Staging-db: management_payroll
-![management-payroll-schema](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
