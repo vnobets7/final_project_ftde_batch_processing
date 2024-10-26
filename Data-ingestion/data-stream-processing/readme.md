@@ -23,7 +23,7 @@ The MongoDB - Kafka Source Connector also publishes all change stream events fro
   - [Optional] *nix system
 
 ## 3. System architecture
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/Stream-processing-dataflow.PNG)
 
 ## 4. Dataset
 This project using 1 csv as data source: data recruitment selection 
@@ -35,7 +35,6 @@ This project using 1 csv as data source: data recruitment selection
 - startDate
 - endDate
 - status
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
 
 ## 5. Running the project
 1.Navigate to the project directory
@@ -88,7 +87,6 @@ $ pip install -r requirements.txt
 18.Run producer.py to send data into consumer
 19.Run consumer.py to recieve data and save the data into mongoDB
 20.Run ML_Recruitment_Prediction.py and save the data into postgreSQL
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
 21.Stop and remove the docker container (after finish extracting)
 21a.Stop and remove the container
 ```
@@ -98,18 +96,17 @@ docker compose docker-compose.yaml down --remove-orphans -v
 ## 6. Kafka producer
 In this case, kafka producer start serialize using 'SerializingProducer' from confluent_kafka module convert tabular data to Avro type before sending to consumer.
 To make sure all messages have been send to consumer use 'producer.flush()'.
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+![image](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-1.PNG)
 <br>
-note: on the confluent cloud, i'm already create a kafka topic credentials and kafka schema registry credentials before running the producer.py
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+On the confluent cloud, i'm already create a kafka topic credentials and kafka schema registry credentials before running the producer.py
+![kafka-consumer](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-3.PNG)
 <br>
-For this project, i'm using confluent cloud that connect to the kafka cluster. Kafka producer also create schema name 'candidate' on confluent cloud.
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+note: for this project, i'm using confluent cloud that connect to the kafka cluster. Kafka producer also create schema name 'candidate' on confluent cloud.
 
 ## 7. Kafka consumer
 In this case, kafka consumer receive all transaction data from producer on kafka cluster and save the data into mongoDB on noSQL mongoDB cluster.
 Before saving into mongoDB, kafka consumer start deserialize using 'DeserializingConsumer' from confluent_kafka module convert Avro to JSON NoSQL datatype.
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+![image](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-2-1.PNG)
 <br>
 note: for this project, i'm using mongoDB atlas that connect from local using docker-compose and pymongo.
 
@@ -124,7 +121,7 @@ For this project, i'm using dbeaver and docker compose to access postgreSQL conn
 
 ## 9. Database result
 - MongoDB atlas cluster
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+![mongo-cluster](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-4.PNG)
 <br>
 - Staging-db/stream_processing_ricky: data_training_development
 ![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
