@@ -50,7 +50,10 @@ Our data source consist of 3 tables.
 - PostgreSQL (local version)
 - Apache Airflow (local version)
 
-## 5. Project workflow
+## 5. System architecture
+![Sytem-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-system-architecture.PNG)
+
+## 6. Project workflow
 
 ### Installation and setup
 1.Navigate to the project directory
@@ -112,10 +115,10 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 -> ./airflow/dags/data_dump/: csv file as data sources
 
 ### The DAG preview
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
+![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-The-graph-view.PNG)
 <br>
 
-## 6. Database result
+## 7. Database result
 - Staging-db: performance_management
 ![performance-management-schema](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
 <br>
