@@ -47,17 +47,15 @@ docker-compose up -d
 ```
 <br>
 ### table of docker images and services
-| Docker Image | Docker Hub Link | Port | Service | Description |
-|--------------|-----------------|------|---------|-------------|
-| apache/airflow:latest| [Link](https://hub.docker.com/r/apache/airflow) | --- | Airflow-init | Airflow is a platform created by the community to programmatically author, schedule and monitor workflows.|
-| apache/airflow:latest| [Link](https://hub.docker.com/r/apache/airflow) | --- | Airflow-scheduler | Airflow is a platform created by the community to programmatically author, schedule and monitor workflows.|
-| apache/airflow:latest| [Link](https://hub.docker.com/r/apache/airflow) | [8080](http://localhost:8080) | Airflow-webserver | Airflow is a platform created by the community to programmatically author, schedule and monitor workflows.|
-| confluentinc/cp-zookeeper | [Link](https://hub.docker.com/r/confluentinc/cp-zookeeper) | [2181](https://www.confluent.io/confluent-cloud/) | Confluent cloud: zookeeper | ---|
-| confluentinc/cp-kafka | [Link](https://hub.docker.com/r/confluentinc/cp-kafka/) | [9092](https://www.confluent.io/confluent-cloud/) | Confluent cloud: kafka | ---|
-| mongoDB | [Link](https://hub.docker.com/_/mongo) | [27017](https://www.mongodb.com/cloud/atlas/) | MongoDB atlas | ---|
-| mongo-express | [Link](https://hub.docker.com/_/mongo-express) | [8081](http://localhost:6379) | Mongo express | ---|
-| postgres:latest | [Link](https://hub.docker.com/_/postgres) |  ---  | Postgres/Airflow metada | PostgreSQL is a powerful, open source object-relational database system.|
-| postgres:latest | [Link](https://hub.docker.com/_/postgres) | [5433](http://localhost:5433) | Postgres/staging_db | PostgreSQL is a powerful, open source object-relational database system.|
+| Docker Image | 
+|--------------|
+| apache/airflow:latest |
+| confluentinc/cp-zookeeper |
+| confluentinc/cp-kafka |
+| mongoDB |
+| mongo-express |
+| postgres:latest |
+| postgres:latest |
 <br>
 
 3.Starts the containers for apache airflow
@@ -99,9 +97,9 @@ To make sure all messages have been send to consumer use 'producer.flush()'.
 ![image](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-1.PNG)
 <br>
 On the confluent cloud, i'm already create a kafka topic credentials and kafka schema registry credentials before running the producer.py
-![kafka-consumer](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-3.PNG)
 <br>
 note: for this project, i'm using confluent cloud that connect to the kafka cluster. Kafka producer also create schema name 'candidate' on confluent cloud.
+![kafka-schema](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-3-1.PNG)
 
 ## 7. Kafka consumer
 In this case, kafka consumer receive all transaction data from producer on kafka cluster and save the data into mongoDB on noSQL mongoDB cluster.
@@ -117,11 +115,10 @@ note: for this project, i'm using mongoDB atlas that connect from local using do
 In this case, data inside mongoDB will be convert from JSON datatype to tabular data and save into postgreSQL.
 Before save into postgreSQL, schema table already been create using raw sql inside python code.
 For this project, i'm using dbeaver and docker compose to access postgreSQL connection.
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
+![mongo-to-postgres](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-5.PNG)
 
 ## 9. Database result
 - MongoDB atlas cluster
 ![mongo-cluster](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-4.PNG)
 <br>
 - Staging-db/stream_processing_ricky: data_training_development
-![image](https://github.com/vnobets7/Digital-Skola-FTDE-Mini-Project2/blob/main/images/dbt-signature_tm.png)
