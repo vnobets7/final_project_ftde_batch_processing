@@ -1,0 +1,97 @@
+version: '3.4'
+
+services:
+  postgres:
+    image: postgres:latest
+    networks:
+      - pipe_network
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  
+
+  airflow-init:
+    image: apache/airflow:latest
+    depends_on:
+      - postgres
+    networks:
+      - pipe_network
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
+    command: >
+      bash -c "airflow db migrate &&
+                airflow users create \\
+                 --username ${ADMIN_USERNAME} \\
+                 --password ${ADMIN_PASSWORD} \\
+                 --firstname ${ADMIN_FIRSTNAME} \\
+                 --lastname ${ADMIN_LASTNAME} \\
+                 --role Admin \\
+                 --email ${ADMIN_MAIL}"
+
+
+  webserver:
+    build:  
+      context: .
+      dockerfile: Dockerfile
+    user: root
+    depends_on:
+      - postgres
+      - airflow-init
+    networks:
+      - pipe_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts/
+      - ./data:/opt/airflow/data/
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - LOAD_X = n
+      - EXECUTOR=Local
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
+      - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
+      - AIRFLOW__WEBSERVER__DEFAULT__USER_USERNAME=${AIRFLOW__WEBSERVER__DEFAULT__USER_USERNAME}
+      - AIRFLOW__WEBSERVER__DEFAULT__USER_PASSWORD=${AIRFLOW__WEBSERVER__DEFAULT__USER_PASSWORD}
+      - AIRFLOW_WWW_USER_USERNAME=${AIRFLOW_WWW_USER_USERNAME}
+      - AIRFLOW_WWW_USER_PASSWORD=${AIRFLOW_WWW_USER_PASSWORD}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+    ports:
+      - "8080:8080"
+    command: webserver
+
+
+  scheduler:
+    build:  
+      context: .
+      dockerfile: Dockerfile
+    user: root
+    depends_on:
+      - postgres
+      - airflow-init
+    networks:
+      - pipe_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts/
+      - ./data:/opt/airflow/data/
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - LOAD_X = n
+      - EXECUTOR=Local
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres/${POSTGRES_DB}
+      - AIRFLOW__CORE__FERNET_KEY=${FERNET_KEY}
+      - AIRFLOW__WEBSERVER__DEFAULT__USER_USERNAME=${AIRFLOW__WEBSERVER__DEFAULT__USER_USERNAME}
+      - AIRFLOW__WEBSERVER__DEFAULT__USER_PASSWORD=${AIRFLOW__WEBSERVER__DEFAULT__USER_PASSWORD}
+      - AIRFLOW_WWW_USER_USERNAME=${AIRFLOW_WWW_USER_USERNAME}
+      - AIRFLOW_WWW_USER_PASSWORD=${AIRFLOW_WWW_USER_PASSWORD}
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW__WEBSERVER__SECRET_KEY}
+    command: scheduler
+
+
+networks:
+  pipe_network:
+    driver: bridge

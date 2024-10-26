@@ -1,0 +1,16 @@
+services:
+  jupyter-notebook-service:
+    container_name: jupyter-notebook-container
+    image: jupyter-notebook-spark
+    platform: linux/amd64
+    networks:
+      - pipe_network
+    volumes:
+      - "./scripts/sparkdata:/sparkdata"
+      - "./scripts/work:/home/ricky/work"
+    ports:
+      - "8888:8888"
+
+networks:
+  pipe_network:
+    driver: bridge
