@@ -1,0 +1,15 @@
+avro
+avroconsumer
+confluent-kafka
+dnspython
+fastavro
+requests
+relationalize
+six
+scikit-learn
+SQLAlchemy
+pandas
+pymongo
+python-dotenv
+psycopg2
+urllib3
