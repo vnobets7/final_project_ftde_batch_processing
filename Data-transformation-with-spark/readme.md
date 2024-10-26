@@ -12,7 +12,7 @@ Transformation will be use apache spark with python and automate the process usi
 <-> Save the data into target (data mart - postgres)
 
 ## 3. Dataflow Architecture
-![Local-Database](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
+![Local-Database](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-System-architecture.PNG)
 
 ## 4. Requirements
   - Python 3.10+
@@ -100,18 +100,15 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 -> ./spark_drivers/: contains postgres driver (optional)
 
 ### The DAG preview
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
+![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-The-graph-view.PNG)
 
 ## 6. Analytics preview
 
 ### Distribution of employee ages
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-employee-based-on-aged.PNG)
+![Age-distribution](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-candidate-based-on-aged.PNG)
 
 ### Top 10 employee got high bonus for after work time
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-Top-10-highest-bonusovertime-title.PNG)
+![Top-10-high-pay](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-Top-10-higher-total-emp-title.PNG)
 
 ## 7. The Data marts result
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
-<br>
-![DAG-graph](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
-<br>
+![Data-mart](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-Data-mart-docker.PNG)
