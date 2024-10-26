@@ -1,0 +1,30 @@
+services:
+  db-postgres:
+    image: postgres:latest
+    container_name: batch_postgres
+    environment:
+    - POSTGRES_USER=${POSTGRES_STAGING_USER}
+    - POSTGRES_PASSWORD=${POSTGRES_STAGING_PASSWORD}
+    - POSTGRES_DB=${POSTGRES_STAGING_DB}
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    
+  db-mysql:
+    image: mysql:8.2
+    container_name: batch_mysql
+    environment:
+    - MYSQL_USER=${MYSQL_USER}
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    - MYSQL_DATABASE=${MYSQL_DB}
+    ports:
+      - "3307:3306"
+    volumes:
+      -  ./mysql_data:/var/lib/mysql
+      
+volumes:
+  postgres_data:
+    name: db-staging-postgres
+  mysql_data:
+    name: db-staging-mysql
