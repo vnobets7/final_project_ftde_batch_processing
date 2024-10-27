@@ -47,34 +47,49 @@ docker-compose up -d
 ```
 <br>
 ### table of docker images and services
-| Docker Image | 
-|--------------|
-| apache/airflow:latest |
-| confluentinc/cp-zookeeper |
-| confluentinc/cp-kafka |
-| mongoDB |
-| mongo-express |
-| postgres:latest |
-| postgres:latest |
+
+| Docker Image               | 
+|----------------------------|
+| apache/airflow:latest      |
+| confluentinc/cp-zookeeper  |
+| confluentinc/cp-kafka      |
+| mongoDB                    |
+| mongo-express              |
+| postgres:latest            |
+
 <br>
 
 3.Starts the containers for apache airflow
 ```
 docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml up --build -d
 ```
+<br>
 4.Create new environment on confluent cloud
+<br>
 5.Create new cluster on confluent cloud
+<br>
 6.Generate new API Keys for cluster
+<br>
 7.Create new topics on confluent cloud
+<br>
 8.Copy Bootstrap server + API Keys into .env
+<br>
 9.Create new schemas on confluent cloud
+<br>
 10.Generate new API Keys for schemas on confluent cloud
+<br>
 11.Copy schemas registry url + API Keys into .env
+<br>
 12.Create new cluster on mongoDB atlas
+<br>
 13.Create database access on mongoDB atlas
+<br>
 14.Set up IP access list on mongoDB atlas
+<br>
 15.Generate new API Keys for cluster
+<br>
 16.Copy mongoDB url + API Keys into .env
+<br>
 17.Run this command on CLI
 ```
 $ conda create -n <environment_name> python=<insert_version>
@@ -82,10 +97,15 @@ $ conda env list
 $ conda activate <environment_name>
 $ pip install -r requirements.txt
 ```
+<br>
 18.Run producer.py to send data into consumer
+<br>
 19.Run consumer.py to recieve data and save the data into mongoDB
+<br>
 20.Run ML_Recruitment_Prediction.py and save the data into postgreSQL
+<br>
 21.Stop and remove the docker container (after finish extracting)
+<br>
 21a.Stop and remove the container
 ```
 docker compose docker-compose.yaml down --remove-orphans -v
