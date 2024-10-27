@@ -40,8 +40,8 @@ Our data source consist of 3 tables.
 - status
 <br>
 
-## 3. Dataflow Architecture
-![Local-Database](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
+## 3. System architecture
+![Sytem-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-system-architecture.PNG)
 
 ## 4. Tech Stack
 - Docker (local version)
@@ -50,10 +50,7 @@ Our data source consist of 3 tables.
 - PostgreSQL (local version)
 - Apache Airflow (local version)
 
-## 5. System architecture
-![Sytem-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-system-architecture.PNG)
-
-## 6. Project workflow
+## 5. Project workflow
 
 ### Installation and setup
 1.Navigate to the project directory
@@ -114,7 +111,7 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 -> ./airflow/dags/: contains airflow DAG that manage ETL process
 -> ./airflow/dags/data_dump/: csv file as data sources
 
-### The DAG preview
+## 6. The DAG preview
 ![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-The-graph-view.PNG)
 <br>
 
