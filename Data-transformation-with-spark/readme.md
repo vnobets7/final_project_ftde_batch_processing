@@ -6,12 +6,12 @@ In this project, (E)Transoform(L) process purpose is to conduct viability analys
 Transformation will be use apache spark with python and automate the process using apache airflow.
 
 ## 2. Project Objective
-<-> Load data from data warehouse - postgres to spark dataFrame via docker container.
-<-> Load data from table into parquet type
-<-> Perform query using Pyspark SQL to transform employee data and candidate data.
-<-> Save the data into target (data mart - postgres)
+<-> Load data from data warehouse - postgres to spark dataFrame via docker container. <br>
+<-> Load data from table into parquet type <br>
+<-> Perform query using Pyspark SQL to transform employee data and candidate data.  <br>
+<-> Save the data into target (data mart - postgres)  <br>
 
-## 3. Dataflow Architecture
+## 3. System Architecture
 ![Local-Database](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-System-architecture.PNG)
 
 ## 4. Requirements
@@ -41,7 +41,7 @@ docker compose -f docker-compose-postgres.yaml up -f docker-compose-postgres.yam
 docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml up --build -d
 ```
 
-4.Allow docker container to connect to a localhost postgres database [optional]
+4.Allow docker container to connect to a localhost postgres database [optional] <br>
 4a.Find IP Address for postgresql database on docker container
 ```
 docker inspect <docker_container_name>
@@ -56,13 +56,15 @@ example: listen_addresses = '*'
 ```
 <br>
 ### table of docker images and services
-| Docker Image |
-|--------------|
-| apache/airflow:latest|
-| mkhasan0007/bitnami-spark:3.1.2 |
-| bitnami/spark:3.1.2 |
+
+| Docker Image                         |
+|--------------------------------------|
+| apache/airflow:latest                |
+| mkhasan0007/bitnami-spark:3.1.2      |
+| bitnami/spark:3.1.2                  |
 | jupyter/pyspark-notebook:spark-3.2.0 |
-| postgres:latest |
+| postgres:latest                      |
+
 <br>
 
 5.Access jupyter notebook for running pyspark [optional]
@@ -81,7 +83,7 @@ open http://localhost:8080 on the browser
 6b.Type username and password that already been set on docker-compose-sample.yaml or .env file
 <br>
 
-7.Stop and remove the docker container (after finish extracting)
+7.Stop and remove the docker container (after finish extracting) <br>
 7a.Stop and remove the PostgreSQL and Mysql container
 ```
 docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove-orphans -v
@@ -92,12 +94,12 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 (2) docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml down --remove-orphans -v
 ```
 <br>
-- The DAG orchestrates the python operator for scheduler
--> ./airflow/dags/: contains airflow DAG that manage ETL process
--> ./logs/: contains logs from task execution and scheduler
--> ./jobs/: contains custom plugins (optional)
--> ./scripts/: contains custom function/module for the operator on DAG file (optional)
--> ./spark_drivers/: contains postgres driver (optional)
+- The DAG orchestrates the python operator for scheduler <br>
+-> ./airflow/dags/: contains airflow DAG that manage ETL process <br>
+-> ./logs/: contains logs from task execution and scheduler <br>
+-> ./jobs/: contains custom plugins (optional) <br>
+-> ./scripts/: contains custom function/module for the operator on DAG file (optional) <br>
+-> ./spark_drivers/: contains postgres driver (optional) <br>
 
 ### The DAG preview
 ![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-The-graph-view.PNG)
@@ -108,7 +110,7 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 ![Age-distribution](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-candidate-based-on-aged.PNG)
 
 ### Top 10 employee got high bonus for after work time
-![Top-10-high-pay](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-Top-10-higher-total-emp-title.PNG)
+![Top-10-high-pay](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-Top-10-highest-bonusovertime-title.PNG)
 
 ## 7. The Data marts result
 ![Data-mart](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-Data-mart-docker.PNG)
