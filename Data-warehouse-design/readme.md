@@ -14,7 +14,7 @@ Extraction from staging db into DWH will be conducted using python and sql.
 <-> Extract/Load: python + sql + docker-compose
 <-> Destination - DWH: postgreSQL
 
-## 3. Dataflow Architecture
+## 3. System Architecture
 ![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-system-architecture.PNG)
 
 ## 4. Tools use
@@ -64,7 +64,6 @@ This ERD of fact and dimensional table in HR data warehouse
 - Data ingestion process from staging-db to DWH_HR
 The purpose of creating data warehouse was to enable organization to easily combine data from staging area and store in data warehouse schema.
 In this project, DWH create by using snowflake schema type for break down dimension tables into logical subdimension to reduce redundancy and improve data integrity.
-![python-code](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-final-project-23.PNG)
 
 ### DWH Detail
 <-> All the fact and dim table inside DWH_HR
