@@ -111,8 +111,10 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 -> ./airflow/dags/data_dump/: csv file as data sources
 
 ## 6. The DAG preview
-![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-The-graph-view.PNG)
-<br>
+![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-batch-processing/images/SS-The-graph-view-new.PNG)
+
+### Airflow main page
+![DAG-airflow](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-batch-processing/images/SS-The-airflow-overview.PNG)
 
 ## 7. Database result
 - Staging-db: performance_management <br>
