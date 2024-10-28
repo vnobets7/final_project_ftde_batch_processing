@@ -6,7 +6,7 @@ In this project, it will be use 'snowflake schema' for data warehouse design.
 Extraction from staging db into DWH will be conducted using python and sql.
 
 ## 2. Project Objective
-<-> To-do list:
+To-do list:
 - Move the data using Python and SQL 
 - Create data warehouse modeling with snowflake schema
 - Develop DWH using two type of database,(1) On-premise using postegreSQL (2) Cloud Database using Google Cloud SQL - postgres instance <br>
@@ -55,21 +55,25 @@ open http://localhost:8080 on the browser
 <-> Run the orchestration  <br>
 <-> Click the DAG name "dag1-data-ingestion" on DAG waiting list <br>
 <-> Run the DAG <br>
-<-> Stop and remove the docker container (after finish extracting) 7a.Stop and remove the PostgreSQL and Mysql container
+<-> Stop and remove the docker container (after finish extracting)
+<-> Stop and remove the PostgreSQL and Mysql container
 ```
 docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove-orphans -v
 ```
-7b.Stop and remove the the airflow container
+<-> Stop and remove the the airflow container
 ```
 (1) logout from airflow UI
 (2) docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml down --remove-orphans -v
 ```
 <-> Cloud development setup using google cloud sql - postgres instance(comming soon)
 
-### The DAG Preview
+## 6. The DAG Preview
 ![airflow-DAG](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-The-graph.PNG)
 
-## 6. Data Warehouse Design
+### Airflow main page
+![airflow-mainpage](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-The-airflow-overview.PNG)
+
+## 7. Data Warehouse Design
 - staging-db contain data from batch processing & stream processing
 This ERD of fact and dimensional table in HR data warehouse
 ![staging-db](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/data-staging-dbeaver-batch-processing.PNG)
