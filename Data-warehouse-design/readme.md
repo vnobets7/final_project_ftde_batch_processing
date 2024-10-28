@@ -9,9 +9,9 @@ Extraction from staging db into DWH will be conducted using python and sql.
 <-> To-do list:
 - Move the data using Python and SQL 
 - Create data warehouse modeling with snowflake schema
-- Develop DWH using two type of database,(1) On-premise using postegreSQL (2) Cloud Database using Google Cloud SQL - postgres instance
-<-> Data Source - staging-db: batch processing + stream processing
-<-> Extract/Load: python + sql + docker-compose
+- Develop DWH using two type of database,(1) On-premise using postegreSQL (2) Cloud Database using Google Cloud SQL - postgres instance <br>
+<-> Data Source - staging-db: batch processing + stream processing <br>
+<-> Extract/Load: python + sql + docker-compose <br>
 <-> Destination - DWH: postgreSQL
 
 ## 3. System Architecture
@@ -31,25 +31,38 @@ In this project, it will need to use 2 different database (local and cloud for d
 ```
 cd .\final_project_ftde_ricky\data-ingestion\Data-warehouse-design\
 ```
-<-> Use docker container from folder ./data-ingestion/data-stream-processing
+<-> Starts the containers for apache airflow in the background
 ```
-$ docker-compose up -d
+docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml up --build -d
 ```
-<-> Navigate to the project directory
+<-> Starts the containers for postgreSQL(data warehouse & data mart) in the background
 ```
-$ cd ./data-warehouse-design
+docker compose -f docker-compose-db.yaml up -f docker-compose-db.yaml up -d
 ```
-<-> Activate ananconda environment on local computer
+<-> Open pg_hba.conf file and add this to that file if the host IP address range not inside
 ```
-$ conda activate <insert_name>
+example: host    all             all             172.0.0.0/8            md5
 ```
-<-> Install all necessary python library on requirements.txt
+<-> Open postgresql.conf file and change the setting if the current set like this listen_addresses = '#'
 ```
-$ pip install -r requirements. txt
+example: listen_addresses = '*'
 ```
-<-> Run main.py to create data warehouse schema and move the data from staging to data Warehouse
+<-> Open the data pipline on apache airflow 5a.Access the airflow webserver(airflow UI)
 ```
-$ python main.py
+open http://localhost:8080 on the browser
+```
+<-> Type username and password that already been set on docker-compose-sample.yaml or .env file <br>
+<-> Run the orchestration  <br>
+<-> Click the DAG name "dag1-data-ingestion" on DAG waiting list <br>
+<-> Run the DAG <br>
+<-> Stop and remove the docker container (after finish extracting) 7a.Stop and remove the PostgreSQL and Mysql container
+```
+docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove-orphans -v
+```
+7b.Stop and remove the the airflow container
+```
+(1) logout from airflow UI
+(2) docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml down --remove-orphans -v
 ```
 <-> Cloud development setup using google cloud sql - postgres instance(comming soon)
 
