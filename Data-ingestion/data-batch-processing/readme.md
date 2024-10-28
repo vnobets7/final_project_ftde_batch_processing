@@ -2,16 +2,15 @@
 
 ## 1. Project overview
 In this project, ETL Data Pipeline - batch will use apache airflow to extract employee data and candidate data from multiple csv file, and then load them in 2 different database(PostgreSQL+Mysql).
-All data processing is running from local computer on docker container with the help of docker desktop + WSL2(windows OS)..
+All data processing is running from local computer on docker container with the help of docker desktop + WSL2(windows OS).
 
 ## 2. Dataset
 There 3 different type of data in this project:
 - Data management and payroll from PostgreSQL (batch processing)
 - Training and development from MySQL (batch processing)
 - Performance and management from PostgreSQL (batch processing)
-
 <br>
-Our data source consist of 3 tables. 
+Our data source consist of 3 tables. <br>
 <-> csv1: data_management_payroll
 - employeeid
 - name
@@ -107,8 +106,8 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 (2) docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml down --remove-orphans -v
 ```
 <br>
-- The DAG orchestrates the python operator for scheduler
--> ./airflow/dags/: contains airflow DAG that manage ETL process
+- The DAG orchestrates the python operator for scheduler <br>
+-> ./airflow/dags/: contains airflow DAG that manage ETL process <br>
 -> ./airflow/dags/data_dump/: csv file as data sources
 
 ## 6. The DAG preview
@@ -116,9 +115,7 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 <br>
 
 ## 7. Database result
-- Staging-db: performance_management
-![performance-management-schema](https://github.com/vnobets7/final_project_ftde/blob/ftde-dev-ricky/ETL-stream-processing/images/SS-final-project-8.PNG)
-<br>
-- Staging-db: training_development
-<br>
-- Staging-db: management_payroll
+- Staging-db: performance_management <br>
+- Staging-db: training_development <br>
+- Staging-db: management_payroll <br>
+![data-staging-db](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-batch-processing/images/SS-Staging-db-all-data.PNG)
