@@ -80,6 +80,7 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 - Data ingestion process from staging-db to DWH_HR
 The purpose of creating data warehouse was to enable organization to easily combine data from staging area and store in data warehouse schema.
 In this project, DWH create by using snowflake schema type for break down dimension tables into logical subdimension to reduce redundancy and improve data integrity.
+<br>
 ![dwh-docker](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-DWH-docker.PNG)
 
 ### DWH Detail
