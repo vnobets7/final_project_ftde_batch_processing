@@ -16,7 +16,7 @@ access the google looker studio in this link: https://lookerstudio.google.com/re
 ### Futher improvement:
 - Use python venv instead conda
 - Add github workflows into the project repo
-- Re-create the data streaming project and adding apache code for orchestrate the pipeline
+- Re-create the data streaming project and adding apache airflow for orchestrate the pipeline
 - Use python or other tools for automate data quality(DQ) check
 - Create dashboard for employee view with different department
 - Create dashboard for candidate
