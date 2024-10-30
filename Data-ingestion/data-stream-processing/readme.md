@@ -90,7 +90,8 @@ docker compose -f docker-compose-airflow.yaml -f docker-compose-airflow.yaml up 
 <br>
 16.Copy mongoDB url + API Keys into .env
 <br>
-17.Run this command on CLI
+17.Run this command on CLI 
+<br>
 ```
 $ conda create -n <environment_name> python=<insert_version>
 $ conda env list
@@ -107,6 +108,7 @@ $ pip install -r requirements.txt
 21.Stop and remove the docker container (after finish extracting)
 <br>
 21a.Stop and remove the container
+<br>
 ```
 docker compose docker-compose.yaml down --remove-orphans -v
 ```
@@ -119,7 +121,7 @@ To make sure all messages have been send to consumer use 'producer.flush()'.
 On the confluent cloud, i'm already create a kafka topic credentials and kafka schema registry credentials before running the producer.py
 <br>
 note: for this project, i'm using confluent cloud that connect to the kafka cluster. Kafka producer also create schema name 'candidate' on confluent cloud.
-![kafka-schema](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-3-1.PNG)
+![kafka-schema](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-3-1.PNG)
 
 ## 7. Kafka consumer
 In this case, kafka consumer receive all transaction data from producer on kafka cluster and save the data into mongoDB on noSQL mongoDB cluster.
