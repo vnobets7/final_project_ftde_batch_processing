@@ -6,13 +6,12 @@
 3. Navigate to the data warehouse design project and run the DAG "dag2-data-ingestion-dwh"
 4. Navigate to the data transformation with spark and run the DAG "dag3-transform-with-spark"
 5. Navigate to the data visualization with looker studio 
-<br>
 ```
 access the google looker studio in this link: https://lookerstudio.google.com/reporting/6f4df4a8-29bb-4588-9819-0db34fff96f4
 ```
 
 ### Architecture
-https://github.com/vnobets7/final_project_ftde_ricky/blob/main/images/arch-pic.png
+![Local-Database](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/images/arch-pic.png)
 
 ### Futher improvement:
 - Use python venv instead conda
