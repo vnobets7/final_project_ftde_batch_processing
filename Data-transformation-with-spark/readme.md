@@ -12,7 +12,7 @@ Transformation will be use apache spark with python and automate the process usi
 <-> Save the data into target (data mart - postgres)  <br>
 
 ## 3. System Architecture
-![Local-Database](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-System-architecture.PNG)
+![Local-Database](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-System-architecture.PNG)
 
 ## 4. Requirements
   - Python 3.10+
@@ -102,15 +102,15 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 -> ./spark_drivers/: contains postgres driver (optional) <br>
 
 ### The DAG preview
-![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-The-graph-view.PNG)
+![DAG-graph](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-The-graph-view.PNG)
 
 ## 6. Analytics preview
 
 ### Distribution of employee ages
-![Age-distribution](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-candidate-based-on-aged.PNG)
+![Age-distribution](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-candidate-based-on-aged.PNG)
 
 ### Top 10 employee got high bonus for after work time
 ![Top-10-high-pay](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-Top-10-highest-bonusovertime-title.PNG)
 
 ## 7. The Data marts result
-![Data-mart](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-transformation-with-spark/images/SS-Data-mart-docker.PNG)
+![Data-mart](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-transformation-with-spark/images/SS-Data-mart-docker.PNG)
