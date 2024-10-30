@@ -23,7 +23,7 @@ The MongoDB - Kafka Source Connector also publishes all change stream events fro
   - [Optional] *nix system
 
 ## 3. System architecture
-![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/Stream-processing-dataflow.PNG)
+![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-2-1.PNG)
 
 ## 4. Dataset
 This project using 1 csv as data source: data recruitment selection 
@@ -114,7 +114,7 @@ docker compose docker-compose.yaml down --remove-orphans -v
 ## 6. Kafka producer
 In this case, kafka producer start serialize using 'SerializingProducer' from confluent_kafka module convert tabular data to Avro type before sending to consumer.
 To make sure all messages have been send to consumer use 'producer.flush()'.
-![image](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-1.PNG)
+![image-procedur](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-1.PNG)
 <br>
 On the confluent cloud, i'm already create a kafka topic credentials and kafka schema registry credentials before running the producer.py
 <br>
@@ -124,7 +124,7 @@ note: for this project, i'm using confluent cloud that connect to the kafka clus
 ## 7. Kafka consumer
 In this case, kafka consumer receive all transaction data from producer on kafka cluster and save the data into mongoDB on noSQL mongoDB cluster.
 Before saving into mongoDB, kafka consumer start deserialize using 'DeserializingConsumer' from confluent_kafka module convert Avro to JSON NoSQL datatype.
-![image](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-2-1.PNG)
+![image-consumer](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-2-1.PNG)
 <br>
 note: for this project, i'm using mongoDB atlas that connect from local using docker-compose and pymongo.
 
@@ -135,10 +135,9 @@ note: for this project, i'm using mongoDB atlas that connect from local using do
 In this case, data inside mongoDB will be convert from JSON datatype to tabular data and save into postgreSQL.
 Before save into postgreSQL, schema table already been create using raw sql inside python code.
 For this project, i'm using dbeaver and docker compose to access postgreSQL connection.
-![mongo-to-postgres](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-5.PNG)
+![mongo-to-postgres](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-5.PNG)
 
 ## 9. Database result
 - MongoDB atlas cluster
-![mongo-cluster](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-stream-processing/images/SS-final-project-4.PNG)
-<br>
+![mongo-cluster](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-4.PNG)
 - Staging-db/stream_processing_ricky: data_training_development
