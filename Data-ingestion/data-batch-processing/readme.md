@@ -40,7 +40,7 @@ Our data source consist of 3 tables. <br>
 <br>
 
 ## 3. System architecture
-![Sytem-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-ingestion/data-batch-processing/images/SS-system-architecture.PNG)
+![Sytem-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-batch-processing/images/SS-system-architecture.PNG)
 
 ## 4. Tech Stack
 - Docker (local version)
