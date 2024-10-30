@@ -23,7 +23,7 @@ The MongoDB - Kafka Source Connector also publishes all change stream events fro
   - [Optional] *nix system
 
 ## 3. System architecture
-![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/SS-final-project-2-1.PNG)
+![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-ingestion/data-stream-processing/images/Stream-processing-dataflow.PNG)
 
 ## 4. Dataset
 This project using 1 csv as data source: data recruitment selection 
