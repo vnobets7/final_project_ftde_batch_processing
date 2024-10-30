@@ -15,7 +15,7 @@ To-do list:
 <-> Destination - DWH: postgreSQL
 
 ## 3. System Architecture
-![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-system-architecture.PNG)
+![System-arch](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-system-architecture.PNG)
 
 ## 4. Tools use
 - Google Cloud SQL - Postgres Instance (cloud version)
@@ -26,7 +26,7 @@ To-do list:
 
 ## 5. Create table
 In this project, it will need to use 2 different database (local and cloud for development)
-- Local development setup: postegreSQL with docker-compose
+- Local development setup: postegreSQL with docker-compose <br>
 <-> Navigate to the project directory
 ```
 cd .\final_project_ftde_ricky\data-ingestion\Data-warehouse-design\
@@ -55,7 +55,7 @@ open http://localhost:8080 on the browser
 <-> Run the orchestration  <br>
 <-> Click the DAG name "dag1-data-ingestion" on DAG waiting list <br>
 <-> Run the DAG <br>
-<-> Stop and remove the docker container (after finish extracting)
+<-> Stop and remove the docker container (after finish extracting) <br>
 <-> Stop and remove the PostgreSQL and Mysql container
 ```
 docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove-orphans -v
@@ -68,24 +68,22 @@ docker compose -f docker-compose-db.yaml -f docker-compose-db.yaml down --remove
 <-> Cloud development setup using google cloud sql - postgres instance(comming soon)
 
 ## 6. The DAG Preview
-![airflow-DAG](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-The-graph.PNG)
+![airflow-DAG](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-The-graph.PNG)
 
 ### Airflow main page
 ![airflow-mainpage](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-The-airflow-overview.PNG)
 
 ## 7. Data Warehouse Design
 - staging-db contain data from batch processing & stream processing
-This ERD of fact and dimensional table in HR data warehouse
-![staging-db](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/data-staging-dbeaver-batch-processing.PNG)
+![staging-db-docker](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/data-staging-dbeaver-batch-processing.PNG)
 <br>
 - Data ingestion process from staging-db to DWH_HR
 The purpose of creating data warehouse was to enable organization to easily combine data from staging area and store in data warehouse schema.
 In this project, DWH create by using snowflake schema type for break down dimension tables into logical subdimension to reduce redundancy and improve data integrity.
+![dwh-docker](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-DWH-docker.PNG)
 
 ### DWH Detail
 <-> All the fact and dim table inside DWH_HR
-![DWH-dbeaver](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-final-project-ERD-4-3.PNG)
-<br>
-![DWH-docker](https://github.com/vnobets7/final_project_ftde_ricky/blob/ftde-dev/Data-warehouse-design/images/SS-DWH-docker.PNG)
+![DWH-docker](https://github.com/vnobets7/final_project_ftde_ricky/blob/main/Data-warehouse-design/images/SS-final-project-ERD-4-3.PNG)
 <br>
 <-> Data Warehouse on Goggle Cloud SQL - Postgres instance (comming soon)
